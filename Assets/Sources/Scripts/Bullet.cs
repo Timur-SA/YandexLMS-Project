@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         _timedestoy += Time.deltaTime;
-        if (_timedestoy > 10)
+        if (_timedestoy > 7)
         {
             Destroy(gameObject);
         }

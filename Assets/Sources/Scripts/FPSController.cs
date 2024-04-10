@@ -9,11 +9,13 @@ public class FPSController : MonoBehaviour
     [SerializeField] private Transform _playerPos;
     [SerializeField] private float sens = 3.0f;
     [SerializeField] private Transform _camtrans;
-    
+    [SerializeField] private GameObject _textStart;
+
 
 
     public int MultiJump = 1;
     public float Uskorenie = 1;
+    public bool CloseToButton = false;
 
     private int _currentMultiJump;
     private float _respeed;
@@ -42,7 +44,7 @@ public class FPSController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (grounded) 
+                if (grounded)
                 {
                     _rigidbody.velocity += Vector3.up * _Jumpspeed;
                     _currentMultiJump--;
@@ -50,7 +52,7 @@ public class FPSController : MonoBehaviour
                 }
                 else
                 {
-                    if (_currentMultiJump > 0) 
+                    if (_currentMultiJump > 0)
                     {
                         _rigidbody.velocity += Vector3.up * _Jumpspeed;
                         _currentMultiJump--;
@@ -74,8 +76,15 @@ public class FPSController : MonoBehaviour
             _camtrans.localEulerAngles = new Vector3(-xAngle, 0f, 0f);
             _speed = _respeed;
         } //передвижение + прыжок + ускорение + камера
-        
 
+        if (CloseToButton)
+        {
+            if (Input.GetKey("e") && !GameManager.InstanceGM.GameOn)
+            {
+                GameManager.InstanceGM.GameOn = true;
+                _textStart.SetActive(false);
+            }
+        }
     }
 
 
