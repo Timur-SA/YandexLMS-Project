@@ -5,26 +5,22 @@ using UnityEngine;
 public class ButtonMain : MonoBehaviour
 {
     [SerializeField] private FPSController _player;
+    [SerializeField] private Transform _playerpos;
     [SerializeField] private GameObject _textStart;
+    [SerializeField] private Transform _this;
 
-    private void OnCollisionEnter(Collision collision)
+    private void Update()
     {
-        Debug.Log('.');
-        if (collision.gameObject.GetComponent<FPSController>())
+        float rast = Vector3.Distance(_this.position, _playerpos.position);
+        if (rast < 3)
         {
             _player.CloseToButton = true;
             if (!GameManager.InstanceGM.GameOn) _textStart.SetActive(true);
         }
-    }
-    
-    private void OnCollisionExit(Collision collision)
-    {
-        Debug.Log('.');
-        if (collision.gameObject.GetComponent<FPSController>())
+        else
         {
             _player.CloseToButton = false;
             if (!GameManager.InstanceGM.GameOn) _textStart.SetActive(false);
         }
     }
-
 }
