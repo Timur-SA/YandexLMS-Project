@@ -10,6 +10,7 @@ public class FPSController : MonoBehaviour
     [SerializeField] private float sens = 3.0f;
     [SerializeField] private Transform _camtrans;
     [SerializeField] private GameObject _textStart;
+    [SerializeField] private GameObject _levelManager;
     [SerializeField] private Animator _gatesOpen;
 
 
@@ -84,7 +85,7 @@ public class FPSController : MonoBehaviour
             {
                 GameManager.InstanceGM.GameOn = true;
                 _textStart.SetActive(false);
-                _gatesOpen.SetTrigger("Open"); 
+                _levelManager.SetActive(true);
             }
         }
     }
