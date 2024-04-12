@@ -5,6 +5,7 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     public int TimeToLive;
+    public int SpawnCount;
     public float SpawnDelay;
 
 }

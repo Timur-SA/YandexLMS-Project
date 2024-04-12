@@ -11,6 +11,7 @@ public class FPSController : MonoBehaviour
     [SerializeField] private Transform _camtrans;
     [SerializeField] private GameObject _textStart;
     [SerializeField] private GameObject _levelManager;
+    [SerializeField] private GameObject _enemiesSpawner;
     [SerializeField] private Animator _gatesOpen;
 
 
@@ -86,6 +87,7 @@ public class FPSController : MonoBehaviour
                 GameManager.InstanceGM.GameOn = true;
                 _textStart.SetActive(false);
                 _levelManager.SetActive(true);
+                _enemiesSpawner.SetActive(true);
             }
         }
     }
