@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private Level _lvl;
     [SerializeField] private TMP_Text _timer;
     [SerializeField] private Animator _gatesOpen;
+    [SerializeField] private GameObject _enSpawner;
 
 
     private int _secNow;
@@ -48,6 +49,7 @@ public class LevelManager : MonoBehaviour
                 IsPlaying = false;
                 LevelDone = true;
                 _timer.text = "";
+                _enSpawner.SetActive(false);
             }
         }   
         

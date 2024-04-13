@@ -27,7 +27,7 @@ public class EnemiesSpawner : MonoBehaviour
                 flag = true;
                 while (flag)
                 {
-                    nextArrayIndex = Random.Range(0, _spawnerList.Length - 1);
+                    nextArrayIndex = Random.Range(0, _spawnerList.Length);
                     Debug.Log(",");
                     if (_spawnerList[nextArrayIndex].Spawned == false) flag = false;
                 }

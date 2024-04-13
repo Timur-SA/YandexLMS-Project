@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class FPSController : MonoBehaviour
 {
@@ -13,12 +14,15 @@ public class FPSController : MonoBehaviour
     [SerializeField] private GameObject _levelManager;
     [SerializeField] private GameObject _enemiesSpawner;
     [SerializeField] private Animator _gatesOpen;
+    [SerializeField] private TMP_Text _textHealth;
 
 
 
     public int MultiJump = 1;
+    public int Health = 10;
     public float Uskorenie = 1;
     public bool CloseToButton = false;
+    public bool SafeTime = false;
 
     private int _currentMultiJump;
     private float _respeed;
@@ -26,6 +30,7 @@ public class FPSController : MonoBehaviour
     private float xAngle;
     private bool grounded;
     private bool _isJumping = false;
+    private int _damage = 0;
 
 
     private void Start()
@@ -34,6 +39,7 @@ public class FPSController : MonoBehaviour
         _respeed = _speed;
         _currentMultiJump = MultiJump;
         Cursor.lockState = CursorLockMode.Locked;
+        MinusHP();
     }
 
     void Update()
@@ -78,6 +84,7 @@ public class FPSController : MonoBehaviour
             xAngle = Mathf.Clamp(xAngle, -90, 90);
             _camtrans.localEulerAngles = new Vector3(-xAngle, 0f, 0f);
             _speed = _respeed;
+            
         } //передвижение + прыжок + ускорение + камера
 
         if (CloseToButton)
@@ -101,7 +108,38 @@ public class FPSController : MonoBehaviour
             if (!_isJumping) _currentMultiJump = MultiJump;
             _isJumping = false;
         }
+
+        if (collision.gameObject.GetComponent<AllEnemies>() is AllEnemies enemy)
+        {
+            _damage = enemy.Power;
+            if (!SafeTime) Damage();
+        }
     }
+
+    public void Damage()
+    {
+        SafeTime = true;
+        Health -= _damage;
+        Debug.Log("!");
+        MinusHP();
+        if (Health == 0)
+        {
+            //
+        }
+        StartCoroutine(Safe());
+    }
+
+    private IEnumerator Safe()
+    {
+        yield return new WaitForSeconds(3f);
+        SafeTime = false;
+    }
+
+    public void MinusHP()
+    {
+        _textHealth.text = Health.ToString();
+    }
+
 
     private void OnCollisionExit(Collision collision)
     {

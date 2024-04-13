@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private int _enemiesNumber;
     public bool Spawned = false;
+    [SerializeField] private LevelManager _lvlManager;
+    [SerializeField] private Sceleton _sceleton;
 
     public void Spawn()
     {
-        int ran = Random.Range(0, _enemiesNumber);
-        Debug.Log(".");
+        int ran = Random.Range(0, 3);
+        Sceleton scelet = Instantiate(_sceleton, transform.position, transform.rotation);
         Spawned = true;
+        _lvlManager.EnemiesCount++;
         StartCoroutine(Wait());
     }
 
