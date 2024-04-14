@@ -14,6 +14,7 @@ public class Spawner : MonoBehaviour
         Sceleton scelet = Instantiate(_sceleton, transform.position, transform.rotation);
         Spawned = true;
         StartCoroutine(Wait());
+        _lvlManager.EnemiesOnTheField++;
     }
 
     private IEnumerator Wait()

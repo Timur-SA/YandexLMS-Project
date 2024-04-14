@@ -12,13 +12,14 @@ public class LevelManager : MonoBehaviour
     public bool IsPlaying = true;
     public bool LevelDone = false;
     public int EnemiesCount = 0;
+    public int EnemiesOnTheField = 0;
 
     void Update()
     {
         if (IsPlaying)
         { 
             
-            if (EnemiesCount >= _lvl.EnemiesAtAll)
+            if (EnemiesOnTheField >= _lvl.EnemiesAtAll)
             {
                 IsPlaying = false;
                 LevelDone = true;

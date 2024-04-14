@@ -1177,6 +1177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemiesAtAll: 10
   SpawnCount: 2
+  Reward: 0
   SpawnDelay: 4
 --- !u!4 &474481360
 Transform:
@@ -3075,14 +3076,6 @@ MonoBehaviour:
   - {fileID: 1992934214}
   - {fileID: 1731272943}
   - {fileID: 163123327}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   _lvl: {fileID: 474481359}
 --- !u!4 &936987391
 Transform:
@@ -4739,6 +4732,8 @@ MonoBehaviour:
   _lvlManager: {fileID: 1896161897}
   _lvl: {fileID: 474481359}
   _slider: {fileID: 1460497584}
+  _text: {fileID: 1962493548}
+  enemiesSpawner: {fileID: 936987389}
   val: 0
 --- !u!4 &1747401231
 Transform:
@@ -5179,6 +5174,7 @@ MonoBehaviour:
   IsPlaying: 1
   LevelDone: 0
   EnemiesCount: 0
+  EnemiesOnTheField: 0
 --- !u!4 &1896161898
 Transform:
   m_ObjectHideFlags: 0
@@ -5520,7 +5516,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 151.2}
+  m_AnchoredPosition: {x: 0, y: 148.4}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1962493548
@@ -5573,7 +5569,7 @@ MonoBehaviour:
   m_fontSize: 50
   m_fontSizeBase: 50
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -5606,7 +5602,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -44.315308, y: 0, z: -37.537064, w: 20.19191}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
