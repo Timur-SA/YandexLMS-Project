@@ -13,7 +13,6 @@ public class Spawner : MonoBehaviour
         int ran = Random.Range(0, 3);
         Sceleton scelet = Instantiate(_sceleton, transform.position, transform.rotation);
         Spawned = true;
-        _lvlManager.EnemiesCount++;
         StartCoroutine(Wait());
     }
 

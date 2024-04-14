@@ -40,6 +40,6 @@ public class AllEnemies : MonoBehaviour
     public virtual void Die()
     {
         alive = false;
-        _lvlManager.EnemiesCount--;
+        _lvlManager.EnemiesCount++;
     }
 }

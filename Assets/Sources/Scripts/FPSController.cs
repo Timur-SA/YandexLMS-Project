@@ -13,7 +13,6 @@ public class FPSController : MonoBehaviour
     [SerializeField] private GameObject _textStart;
     [SerializeField] private GameObject _levelManager;
     [SerializeField] private GameObject _enemiesSpawner;
-    [SerializeField] private Animator _gatesOpen;
     [SerializeField] private TMP_Text _textHealth;
 
 
@@ -21,7 +20,6 @@ public class FPSController : MonoBehaviour
     public int MultiJump = 1;
     public int Health = 10;
     public float Uskorenie = 1;
-    public bool CloseToButton = false;
     public bool SafeTime = false;
 
     private int _currentMultiJump;
@@ -87,16 +85,6 @@ public class FPSController : MonoBehaviour
             
         } //передвижение + прыжок + ускорение + камера
 
-        if (CloseToButton)
-        {
-            if (Input.GetKey("e") && !GameManager.InstanceGM.GameOn)
-            {
-                GameManager.InstanceGM.GameOn = true;
-                _textStart.SetActive(false);
-                _levelManager.SetActive(true);
-                _enemiesSpawner.SetActive(true);
-            }
-        }
     }
 
 

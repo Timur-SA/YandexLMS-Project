@@ -6,7 +6,7 @@ public class Sceleton : AllEnemies
 {
     [SerializeField] public UnityEngine.AI.NavMeshAgent Agent;
 
-
+    
 
     private float timedestroy = 0f;
     [SerializeField] private Collider _collider;
