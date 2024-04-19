@@ -4,7 +4,8 @@ using UnityEngine;
 
 public enum EnemyType
 {
-    Sceleton
+    Sceleton,   
+    Dragon
 }
 
 public class AllEnemies : MonoBehaviour
@@ -17,10 +18,10 @@ public class AllEnemies : MonoBehaviour
 
     protected LevelManager _lvlManager;
     protected Gun _gun;
-    protected bool alive = true;
+    public bool alive = true;
     protected Transform _playertransform;
 
-    private void Start()
+    private void Awake()
     {
         _playertransform = FindObjectOfType<FPSController>().transform;
         _gun = FindObjectOfType<Gun>();
@@ -40,6 +41,6 @@ public class AllEnemies : MonoBehaviour
     public virtual void Die()
     {
         alive = false;
-        _lvlManager.EnemiesCount++;
+        _lvlManager.EnemiesCount++; 
     }
 }

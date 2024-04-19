@@ -100,11 +100,11 @@ public class FPSController : MonoBehaviour
         if (collision.gameObject.GetComponent<AllEnemies>() is AllEnemies enemy)
         {
             _damage = enemy.Power;
-            if (!SafeTime) Damage();
+            if (!SafeTime) Damage(_damage);
         }
     }
 
-    public void Damage()
+    public void Damage(int _damage)
     {
         SafeTime = true;
         Health -= _damage;
