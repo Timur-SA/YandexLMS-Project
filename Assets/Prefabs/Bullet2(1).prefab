@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8036677198238355743}
   - component: {fileID: 3825657030917981799}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,8 @@ GameObject:
   - component: {fileID: 3180335798630968242}
   - component: {fileID: 6933338238150249935}
   - component: {fileID: 3706817278107704093}
-  m_Layer: 0
+  - component: {fileID: 4504957595760746980}
+  m_Layer: 6
   m_Name: Bullet2(1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +115,7 @@ Transform:
   m_GameObject: {fileID: 1802838941064550103}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6146383, y: 0, z: 2.6534674}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.29, y: 0.29, z: 0.29}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -182,6 +183,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &4504957595760746980
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802838941064550103}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.07
+  m_Height: 0.4
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.15, z: 0}
 --- !u!1 &5146113104583276801
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8792293445805037015}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet2_Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}

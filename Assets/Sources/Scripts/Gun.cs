@@ -9,7 +9,6 @@ public class Gun : MonoBehaviour
     [SerializeField] private Bullet _bul;
     [SerializeField] public float Shotperiod;
     [SerializeField] public int BulletsInMagazine;
-    [SerializeField] public int BulletsAtAll = 12;
     [SerializeField] private float _bulspeed;
     [SerializeField] private Transform _spawn;
     [SerializeField] private Transform _player;
@@ -34,17 +33,17 @@ public class Gun : MonoBehaviour
 
         if (!Pause.Instance.IsPause)
         {
-            BulText.text = (BulletsNow.ToString() + "/" + BulletsAtAll.ToString());
+            if (!ReloadNow) { BulText.text = BulletsNow.ToString(); }
+            else { BulText.text = "Перезарядка"; }
             if (BulletsNow > BulletsInMagazine)
             {
-                BulletsAtAll += (BulletsNow - BulletsInMagazine);
                 BulletsNow = BulletsInMagazine;
             }
             if (Input.GetKey("r"))
             {
                 if (ReloadNow == false && BulletsNow < BulletsInMagazine)
                 {
-                    ReloadCheck(1);
+                    ReloadCheck();
                 }
             }
             if (BulletsNow > 0)
@@ -65,62 +64,23 @@ public class Gun : MonoBehaviour
             }
             else
             {
-                ReloadCheck(0);
+                ReloadCheck();
             }
         }
     }
-    private void ReloadCheck(int ind)
+    private void ReloadCheck()
     {
-        if (ind == 0) //вызывается автоматически
+        if (ReloadNow == false)
         {
-            if (ReloadNow == false)
-            {
-                if (BulletsAtAll > BulletsInMagazine)
-                {
-                    ReloadNow = true;
-                    StartReload(BulletsInMagazine);
-                }
-                else
-                {
-                    if (BulletsAtAll <= BulletsInMagazine && BulletsAtAll > 0)
-                    {
-                        ReloadNow = true;
-                        StartReload(BulletsAtAll);
-                    }
-                }
-            }
-        }
-        else // вызывается игроком
-        {
-            if (ReloadNow == false)
-            {
-                if (BulletsAtAll > (BulletsInMagazine - BulletsNow))
-                {
-                    ReloadNow = true;
-                    StartReload(BulletsInMagazine - BulletsNow);
-                }
-                else
-                {
-                    if (BulletsAtAll <= (BulletsInMagazine - BulletsNow) && BulletsAtAll > 0)
-                    {
-                        ReloadNow = true;
-                        StartReload(BulletsAtAll);
-                    }
-                }
-            }
+            ReloadNow = true;
+            StartCoroutine(Reload());
         }
     }
 
-    private void StartReload(int index)
-    {
-        StartCoroutine(Reload(index));
-    }
-
-    private IEnumerator Reload(int index)
+    private IEnumerator Reload()
     {
         yield return new WaitForSeconds(_reloadTime);
-        BulletsNow += index;
-        BulletsAtAll -= index;
+        BulletsNow = 10;
         ReloadNow = false;
     }
 }
