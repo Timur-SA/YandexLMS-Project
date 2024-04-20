@@ -28,6 +28,7 @@ public class FPSController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         _respeed = _speed;
         _currentMultiJump = MultiJump;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
