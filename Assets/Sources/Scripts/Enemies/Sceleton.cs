@@ -11,7 +11,10 @@ public class Sceleton : AllEnemies
     private float timedestroy = 0f;
     [SerializeField] private Collider _collider;
 
-    
+    private void Start()
+    {
+        Agent.speed = Speed;
+    }
 
     private void Update()
     {

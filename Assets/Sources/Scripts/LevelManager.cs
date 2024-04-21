@@ -5,7 +5,7 @@ using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private Level _lvl;
+    private Level _lvl;
     [SerializeField] private GameObject _enSpawner;
 
 
@@ -13,6 +13,11 @@ public class LevelManager : MonoBehaviour
     public bool LevelDone = false;
     public int EnemiesCount = 0;
     public int EnemiesOnTheField = 0;
+
+    private void Start()
+    {
+        _lvl = FindFirstObjectByType<Level>();
+    }
 
     void Update()
     {
