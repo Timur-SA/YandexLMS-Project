@@ -8,17 +8,19 @@ public class Spawner : MonoBehaviour
     [SerializeField] private LevelManager _lvlManager;
     [SerializeField] private Sceleton _sceleton;
     [SerializeField] private Dragon _dragon;
+    [SerializeField] private Zombie _zombie;
 
     public void Spawn()
     {
         int ran = Random.Range(0, 3);
-        if ( ran < 2)
+        if (ran == 0)
         {
             Sceleton scelet = Instantiate(_sceleton, transform.position, transform.rotation);
         }
         else
         {
-            Dragon dragon = Instantiate(_dragon, transform.position, transform.rotation);
+            if (ran == 1) { Dragon dragon = Instantiate(_dragon, transform.position, transform.rotation); }
+            else { Zombie zombie = Instantiate(_zombie, transform.position, transform.rotation); }
         }
         Spawned = true;
         StartCoroutine(Wait());

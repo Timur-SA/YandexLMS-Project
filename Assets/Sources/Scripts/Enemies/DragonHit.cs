@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class DragonHit : MonoBehaviour
 {
-    [SerializeField] private Collider _trigger; 
-    private Dragon _dragon;
-
-    private void Start()
-    {
-        _dragon = FindFirstObjectByType<Dragon>();
-    }
+    [SerializeField] private Collider _trigger;
+    [SerializeField] private Dragon _dragon;
 
 
     private void OnTriggerEnter(Collider other)
@@ -20,7 +15,7 @@ public class DragonHit : MonoBehaviour
         {
             Debug.Log(".!");
             _dragon.Hit();
-            
+            Destroy(other.gameObject);
         }
     }
 

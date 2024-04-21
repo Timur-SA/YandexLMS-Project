@@ -46,8 +46,9 @@ public class Dragon : AllEnemies
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<FPSController>() && alive)
+        if (other.GetComponent<PlayerModelHitBox>() && alive)
         {
+            Debug.Log("??");
             Explode();
         }
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemiesSpawner : MonoBehaviour
 {
     [SerializeField] private Spawner[] _spawnerList;
-    [SerializeField] private Level _lvl;
+    private Level _lvl;
 
     private float _timeNow = 0f;
     private int nextArrayIndex;
@@ -13,7 +13,7 @@ public class EnemiesSpawner : MonoBehaviour
 
     void Start()
     {
-        
+        _lvl = FindFirstObjectByType<Level>();
     }
 
     // Update is called once per frame

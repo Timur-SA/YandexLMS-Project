@@ -3465,7 +3465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 1
   Health: 1
-  Power: 10
+  Power: 3
   Speed: 5
   alive: 1
   _colliderFlore: {fileID: 7228455964841268551}
@@ -3907,6 +3907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _trigger: {fileID: 557273415712236112}
+  _dragon: {fileID: 7565506607884906090}
 --- !u!1 &8502311059225628685
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ using Unity.VisualScripting;
 public class SliderUI : MonoBehaviour
 {
     [SerializeField] private LevelManager _lvlManager;
-    [SerializeField] private Level _lvl;
+    private Level _lvl;
     [SerializeField] private Slider _slider;
     [SerializeField] private TMP_Text _text;
     [SerializeField] private GameObject enemiesSpawner;
@@ -16,6 +16,11 @@ public class SliderUI : MonoBehaviour
     private float _timenow;
 
     public float val = 0;
+
+    private void Start()
+    {
+        _lvl = FindFirstObjectByType<Level>();
+    }
 
     void Update()
     {

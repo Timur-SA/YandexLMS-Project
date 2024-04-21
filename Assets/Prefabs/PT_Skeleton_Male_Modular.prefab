@@ -2975,7 +2975,7 @@ MonoBehaviour:
   Type: 0
   Health: 1
   Power: 1
-  Speed: 6
+  Speed: 11
   alive: 1
   Agent: {fileID: 3575107681739385788}
   _collider: {fileID: 6038548602507605612}
