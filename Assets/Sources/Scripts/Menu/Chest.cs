@@ -11,7 +11,6 @@ public class Chest : MonoBehaviour
     {
         _anim.SetTrigger("Open");
         Debug.Log("/");
-        
     }
 
     void OnMouseExit()

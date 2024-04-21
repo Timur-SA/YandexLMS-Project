@@ -2753,15 +2753,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4920761963112598}
-  - component: {fileID: 95486375388360622}
-  - component: {fileID: 95486375388360623}
   - component: {fileID: 95486375388360624}
+  - component: {fileID: 95486375388360625}
   m_Layer: 0
   m_Name: TreasureChest_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1067853681385837
 GameObject:
@@ -2801,7 +2800,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1692477109350857
 GameObject:
@@ -2833,12 +2832,13 @@ GameObject:
   - component: {fileID: 33190908862701802}
   - component: {fileID: 23709722899315416}
   - component: {fileID: 4969128428638762768}
+  - component: {fileID: 4969128428638762769}
   m_Layer: 0
   m_Name: chest_01_top001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1791116203881775
 GameObject:
@@ -2873,7 +2873,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1804938397751116
 GameObject:
@@ -2891,7 +2891,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1942294626372963
 GameObject:
@@ -3515,40 +3515,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _anim: {fileID: 65695522158548052}
   _candle: {fileID: 1942294626372963}
---- !u!95 &95486375388360622
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1001940291969144}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: b48e647b25cdea24e83bbf62473dedfd, type: 3}
-  m_Controller: {fileID: 9100000, guid: 0c10333b0b8b0a04d861c0eeb5a3cb0d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &95486375388360623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1001940291969144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4003f0a25cf41824596a61d860f9bdf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _anim: {fileID: 95486375388360622}
 --- !u!65 &95486375388360624
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3570,6 +3536,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.82, y: 0.94, z: 0.52}
   m_Center: {x: 0, y: 0.47, z: 0.06}
+--- !u!114 &95486375388360625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001940291969144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4003f0a25cf41824596a61d860f9bdf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _anim: {fileID: 4969128428638762769}
 --- !u!108 &108546126070295373
 Light:
   m_ObjectHideFlags: 0
@@ -3697,6 +3676,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.38556975, y: 0.23633604, z: 0.15544203}
   m_Center: {x: 0.09639219, y: -0.11808146, z: 0.07771559}
+--- !u!95 &4969128428638762769
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705811811499274}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0c10333b0b8b0a04d861c0eeb5a3cb0d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
