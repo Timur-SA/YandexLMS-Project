@@ -39,7 +39,7 @@ public class SliderUI : MonoBehaviour
 
             val = (_lvlManager.EnemiesCount * 1.0f) / (_lvl.EnemiesAtAll * 1.0f);
             _slider.value = val;
-            _text.text = "Осталось врагов: " + (_lvl.EnemiesAtAll - _lvlManager.EnemiesCount);
+            _text.text = "Осталось врагов: " + Mathf.Clamp(_lvl.EnemiesAtAll - _lvlManager.EnemiesCount, 0, 1000);
         }
     }
 }

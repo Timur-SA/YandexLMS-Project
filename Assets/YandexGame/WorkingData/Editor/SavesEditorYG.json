@@ -1,0 +1,14 @@
+{
+    "idSave": 11869,
+    "isFirstSession": false,
+    "language": "ru",
+    "promptDone": false,
+    "money": 1,
+    "newPlayerName": "Hello!",
+    "openLevels": [
+        false,
+        true,
+        false
+    ],
+    "DataJson": "{\"Level\":2,\"Coins\":81360,\"BulletsInMagazine\":10,\"Shotperiod\":0.6000000238418579,\"ReloadTime\":3.0}"
+}

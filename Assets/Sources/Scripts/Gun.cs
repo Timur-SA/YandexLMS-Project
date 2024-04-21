@@ -19,11 +19,15 @@ public class Gun : MonoBehaviour
     public int BulletsNow;
     private float _time;
     public int HitPower = 1;
-    public float _reloadTime = 3f;
+    public float ReloadTime = 3f;
 
 
     private void Start()
     {
+        BulletsInMagazine = Progress.InstanceProgress.CurrentProgressData.BulletsInMagazine;
+        Shotperiod = Progress.InstanceProgress.CurrentProgressData.Shotperiod;
+        ReloadTime = Progress.InstanceProgress.CurrentProgressData.ReloadTime;
+
         BulletsNow = BulletsInMagazine;
 
     }
@@ -79,7 +83,7 @@ public class Gun : MonoBehaviour
 
     private IEnumerator Reload()
     {
-        yield return new WaitForSeconds(_reloadTime);
+        yield return new WaitForSeconds(ReloadTime);
         BulletsNow = 10;
         ReloadNow = false;
     }

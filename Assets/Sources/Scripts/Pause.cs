@@ -35,9 +35,6 @@ public class Pause : MonoBehaviour
 
     private void Update()
     {
-        if (IsPause)
-        {
-            Time.timeScale = 0f;
-        }
+        
     }
 }

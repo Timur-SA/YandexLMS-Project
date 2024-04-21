@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using YG;
 
 public class FPSController : MonoBehaviour
 {
@@ -11,9 +13,14 @@ public class FPSController : MonoBehaviour
     [SerializeField] private float sens = 3.0f;
     [SerializeField] private Transform _camtrans;
     [SerializeField] private GameObject _textStart;
-    [SerializeField] private GameObject _levelManager;
+    [SerializeField] private GameObject _levelManagerGO;
+    [SerializeField] private LevelManager _levelManager;
     [SerializeField] private GameObject _enemiesSpawner;
+    [SerializeField] private GameObject _winWindow;
+    [SerializeField] private GameObject _loseWindow;
+    [SerializeField] private GameObject _heartImg;
     [SerializeField] private TMP_Text _textHealth;
+    [SerializeField] private TMP_Text _textReward;
 
 
 
@@ -25,6 +32,7 @@ public class FPSController : MonoBehaviour
     private int _currentMultiJump;
     private float _respeed;
     private Rigidbody _rigidbody;
+    private Level _lvl;
     private float xAngle;
     private bool grounded;
     private bool _isJumping = false;
@@ -38,11 +46,12 @@ public class FPSController : MonoBehaviour
         _currentMultiJump = MultiJump;
         Cursor.lockState = CursorLockMode.Locked;
         MinusHP();
+        _lvl = FindFirstObjectByType<Level>();
     }
 
     void Update()
     {
-        if (true)
+        if (!Pause.Instance.IsPause)
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
@@ -82,6 +91,11 @@ public class FPSController : MonoBehaviour
             xAngle = Mathf.Clamp(xAngle, -90, 90);
             _camtrans.localEulerAngles = new Vector3(-xAngle, 0f, 0f);
             _speed = _respeed;
+
+            if (_lvl.EnemiesAtAll == _levelManager.EnemiesCount)
+            {
+                Win();
+            }
             
         } //передвижение + прыжок + ускорение + камера
 
@@ -110,9 +124,14 @@ public class FPSController : MonoBehaviour
         Health -= _damage;
         Debug.Log("!");
         MinusHP();
-        if (Health == 0)
+        _heartImg.SetActive(false);
+        if (Health <= 0)
         {
-            //
+            Die();
+        }
+        else
+        {
+            _heartImg.SetActive(true);
         }
         StartCoroutine(Safe());
     }
@@ -125,7 +144,7 @@ public class FPSController : MonoBehaviour
 
     public void MinusHP()
     {
-        _textHealth.text = Health.ToString();
+        _textHealth.text = Mathf.Clamp(Health, 0, 1000).ToString();
     }
 
 
@@ -134,5 +153,29 @@ public class FPSController : MonoBehaviour
         grounded = false;
     }
 
+    private void Die()
+    {
+        _loseWindow.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+
+    }
+
+    private void Win()
+    {
+        Pause.Instance.IsPause = true;
+        _winWindow.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        _textReward.text = "+" + _lvl.Reward.ToString();
+        Progress.InstanceProgress.CurrentProgressData.Coins += _lvl.Reward;
+        if (Progress.InstanceProgress.CurrentProgressData.Level == SceneManager.GetActiveScene().buildIndex)
+        {
+            if (Progress.InstanceProgress.CurrentProgressData.Level < 3) 
+            { 
+                Progress.InstanceProgress.CurrentProgressData.Level++;
+                
+            }
+        }
+        Progress.InstanceProgress.Save();
+    }
 
 }
