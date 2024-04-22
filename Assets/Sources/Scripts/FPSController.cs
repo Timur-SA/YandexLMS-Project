@@ -5,7 +5,6 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using YG;
 using UnityEngine.UIElements;
-using Autodesk.Fbx;
 
 public class FPSController : MonoBehaviour
 {
@@ -25,6 +24,7 @@ public class FPSController : MonoBehaviour
     [SerializeField] private TMP_Text _textReward;
     [SerializeField] private TMP_Text _textRewardL;
     [SerializeField] private TMP_Text _textMenu;
+    [SerializeField] private SliderUI _sliderUI;
 
 
 
@@ -98,7 +98,7 @@ public class FPSController : MonoBehaviour
             _speed = _respeed;
             if (UnityEngine.Cursor.lockState != CursorLockMode.Locked) UnityEngine.Cursor.lockState = CursorLockMode.Locked;
 
-            if (_lvl.EnemiesAtAll == _levelManager.EnemiesCount)
+            if (_lvl.EnemiesAtAll == _levelManager.EnemiesCount || _sliderUI.aaa == 0)
             {
                 Win();
             }

@@ -84,7 +84,7 @@ public class Gun : MonoBehaviour
     private IEnumerator Reload()
     {
         yield return new WaitForSeconds(ReloadTime);
-        BulletsNow = 10;
+        BulletsNow = BulletsInMagazine;
         ReloadNow = false;
     }
 }

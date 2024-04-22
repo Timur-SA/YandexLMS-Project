@@ -32,7 +32,7 @@ public class EnemiesSpawner : MonoBehaviour
                 }
                 _spawnerList[nextArrayIndex].Spawn();
             }
-            _timeNow= 0f;
+            _timeNow = 0f;
         }
     }
 }

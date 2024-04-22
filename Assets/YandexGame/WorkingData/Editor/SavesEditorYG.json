@@ -1,5 +1,5 @@
 {
-    "idSave": 12000,
+    "idSave": 12008,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
@@ -10,5 +10,5 @@
         true,
         false
     ],
-    "DataJson": "{\"Level\":1,\"Coins\":0,\"BulletsInMagazine\":10,\"Shotperiod\":0.6000000238418579,\"ReloadTime\":3.0}"
+    "DataJson": "{\"Level\":2,\"Coins\":200,\"BulletsInMagazine\":10,\"Shotperiod\":0.6000000238418579,\"ReloadTime\":3.0}"
 }

@@ -12,6 +12,7 @@ public class SliderUI : MonoBehaviour
     [SerializeField] private Slider _slider;
     [SerializeField] private TMP_Text _text;
     [SerializeField] private GameObject enemiesSpawner;
+    public int aaa = 1;
 
     private float _timenow;
 
@@ -20,6 +21,7 @@ public class SliderUI : MonoBehaviour
     private void Start()
     {
         _lvl = FindFirstObjectByType<Level>();
+        aaa = 1;
     }
 
     void Update()
@@ -39,7 +41,8 @@ public class SliderUI : MonoBehaviour
 
             val = (_lvlManager.EnemiesCount * 1.0f) / (_lvl.EnemiesAtAll * 1.0f);
             _slider.value = val;
-            _text.text = "Осталось врагов: " + Mathf.Clamp(_lvl.EnemiesAtAll - _lvlManager.EnemiesCount, 0, 1000);
+            aaa = Mathf.Clamp(_lvl.EnemiesAtAll - _lvlManager.EnemiesCount, 0, 1000);
+            _text.text = "Осталось врагов: " + aaa.ToString();
         }
     }
 }
