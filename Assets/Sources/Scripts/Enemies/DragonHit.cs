@@ -10,10 +10,8 @@ public class DragonHit : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("..");
         if (other.GetComponent<Bullet>())
         {
-            Debug.Log(".!");
             _dragon.Hit();
             Destroy(other.gameObject);
         }

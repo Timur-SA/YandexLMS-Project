@@ -28,10 +28,8 @@ public class EnemiesSpawner : MonoBehaviour
                 while (flag)
                 {
                     nextArrayIndex = Random.Range(0, _spawnerList.Length);
-                    Debug.Log(",");
                     if (_spawnerList[nextArrayIndex].Spawned == false) flag = false;
                 }
-                Debug.Log("/");
                 _spawnerList[nextArrayIndex].Spawn();
             }
             _timeNow= 0f;

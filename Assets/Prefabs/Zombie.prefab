@@ -88,6 +88,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e9b01bdfc4021bd459ab620c75c79830, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 3ea946212e7416c4f8a3e7a404166265,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 09cc8cf910fc427418bc8bf712af91af, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -105,6 +110,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1227434356817167309}
   m_SourcePrefab: {fileID: 100100000, guid: 3ea946212e7416c4f8a3e7a404166265, type: 3}
+--- !u!95 &1200893039936001745 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 3ea946212e7416c4f8a3e7a404166265,
+    type: 3}
+  m_PrefabInstance: {fileID: 4738059978808453952}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5548876346996971025 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3ea946212e7416c4f8a3e7a404166265,
@@ -175,3 +186,4 @@ MonoBehaviour:
   alive: 1
   Agent: {fileID: 426298065958954852}
   _collider: {fileID: 928272245923440201}
+  _anim: {fileID: 1200893039936001745}

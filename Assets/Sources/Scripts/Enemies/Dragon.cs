@@ -48,7 +48,6 @@ public class Dragon : AllEnemies
     {
         if (other.GetComponent<PlayerModelHitBox>() && alive)
         {
-            Debug.Log("??");
             Explode();
         }
     }

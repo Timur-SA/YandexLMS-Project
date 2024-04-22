@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using YG;
+using UnityEngine.UIElements;
 
 public class FPSController : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class FPSController : MonoBehaviour
     [SerializeField] private GameObject _heartImg;
     [SerializeField] private TMP_Text _textHealth;
     [SerializeField] private TMP_Text _textReward;
+    [SerializeField] private TMP_Text _textRewardL;
+    [SerializeField] private TMP_Text _textMenu;
 
 
 
@@ -31,6 +34,7 @@ public class FPSController : MonoBehaviour
 
     private int _currentMultiJump;
     private float _respeed;
+    private float _timeNow = 0;
     private Rigidbody _rigidbody;
     private Level _lvl;
     private float xAngle;
@@ -44,7 +48,7 @@ public class FPSController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         _respeed = _speed;
         _currentMultiJump = MultiJump;
-        Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         MinusHP();
         _lvl = FindFirstObjectByType<Level>();
     }
@@ -91,13 +95,27 @@ public class FPSController : MonoBehaviour
             xAngle = Mathf.Clamp(xAngle, -90, 90);
             _camtrans.localEulerAngles = new Vector3(-xAngle, 0f, 0f);
             _speed = _respeed;
+            if (UnityEngine.Cursor.lockState != CursorLockMode.Locked) UnityEngine.Cursor.lockState = CursorLockMode.Locked;
 
             if (_lvl.EnemiesAtAll == _levelManager.EnemiesCount)
             {
                 Win();
             }
+
             
+
         } //передвижение + прыжок + ускорение + камера
+
+        else
+        {
+            _timeNow += Time.deltaTime;
+            _textMenu.text = "В меню через " + (3 - Mathf.Floor(_timeNow)).ToString();
+            if (_timeNow >= 3)
+            {
+                SceneManager.LoadScene(0);
+                Pause.Instance.IsPause = false;
+            }
+        }
 
     }
 
@@ -156,15 +174,19 @@ public class FPSController : MonoBehaviour
     private void Die()
     {
         _loseWindow.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
+        UnityEngine.Cursor.lockState = CursorLockMode.None;
+        _textRewardL.text = "+10";
+        Progress.InstanceProgress.CurrentProgressData.Coins += 10;
+        Progress.InstanceProgress.Save();
+        Pause.Instance.IsPause = true;
+        _timeNow = 0f;
 
     }
 
     private void Win()
     {
-        Pause.Instance.IsPause = true;
         _winWindow.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
+        UnityEngine.Cursor.lockState = CursorLockMode.None;
         _textReward.text = "+" + _lvl.Reward.ToString();
         Progress.InstanceProgress.CurrentProgressData.Coins += _lvl.Reward;
         if (Progress.InstanceProgress.CurrentProgressData.Level == SceneManager.GetActiveScene().buildIndex)
@@ -172,10 +194,10 @@ public class FPSController : MonoBehaviour
             if (Progress.InstanceProgress.CurrentProgressData.Level < 3) 
             { 
                 Progress.InstanceProgress.CurrentProgressData.Level++;
-                
             }
         }
         Progress.InstanceProgress.Save();
+        Pause.Instance.IsPause = true;
+        _timeNow = 0f;
     }
-
 }

@@ -30,7 +30,6 @@ public class Pause : MonoBehaviour
     {
         IsPause = false;
         Time.timeScale = 1f;
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()

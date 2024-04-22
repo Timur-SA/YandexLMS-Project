@@ -2904,7 +2904,7 @@ Animator:
   m_GameObject: {fileID: 8096451922022695843}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 0c18218feab30a94397c5230415876c3, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 09cc8cf910fc427418bc8bf712af91af, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2978,6 +2978,7 @@ MonoBehaviour:
   Speed: 11
   alive: 1
   Agent: {fileID: 3575107681739385788}
+  _anim: {fileID: 373719992339439431}
   _collider: {fileID: 6038548602507605612}
 --- !u!1 &8105212272849354396
 GameObject:

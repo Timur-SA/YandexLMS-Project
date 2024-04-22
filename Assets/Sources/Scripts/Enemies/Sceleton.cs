@@ -5,8 +5,9 @@ using UnityEngine;
 public class Sceleton : AllEnemies
 {
     [SerializeField] public UnityEngine.AI.NavMeshAgent Agent;
+    [SerializeField] private Animator _anim;
 
-    
+
 
     private float timedestroy = 0f;
     [SerializeField] private Collider _collider;
@@ -25,7 +26,7 @@ public class Sceleton : AllEnemies
         else
         {
             timedestroy += Time.deltaTime;
-            if (timedestroy > 1)
+            if (timedestroy > 2)
             {
                 Destroy(gameObject);
             }
@@ -51,6 +52,7 @@ public class Sceleton : AllEnemies
         base.Die();
         _collider.enabled = false;
         Agent.enabled = false;
+        _anim.SetTrigger("Death");
     }
     
 }

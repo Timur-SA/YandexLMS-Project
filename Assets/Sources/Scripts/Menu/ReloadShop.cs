@@ -10,8 +10,9 @@ public class ReloadShop : MonoBehaviour
 
     void Update()
     {
-        if (Progress.InstanceProgress.CurrentProgressData.ReloadTime == 1)
+        if (Progress.InstanceProgress.CurrentProgressData.ReloadTime <= 1f)
         {
+            Progress.InstanceProgress.CurrentProgressData.ReloadTime = 1f;
             _but.SetActive(false);
             _text.SetActive(true);
         }

@@ -7,6 +7,7 @@ public class Zombie : AllEnemies
     [SerializeField] public UnityEngine.AI.NavMeshAgent Agent;
     private float timedestroy = 0f;
     [SerializeField] private Collider _collider;
+    [SerializeField] private Animator _anim;
 
     private void Start()
     {
@@ -23,7 +24,7 @@ public class Zombie : AllEnemies
         else
         {
             timedestroy += Time.deltaTime;
-            if (timedestroy > 1)
+            if (timedestroy > 2)
             {
                 Destroy(gameObject);
             }
@@ -49,5 +50,6 @@ public class Zombie : AllEnemies
         base.Die();
         _collider.enabled = false;
         Agent.enabled = false;
+        _anim.SetTrigger("Death");
     }
 }

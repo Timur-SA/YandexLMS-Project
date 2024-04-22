@@ -10,8 +10,9 @@ public class SpeedShop : MonoBehaviour
     
     void Update()
     {
-        if (Progress.InstanceProgress.CurrentProgressData.Shotperiod == 0.2)
+        if (Progress.InstanceProgress.CurrentProgressData.Shotperiod <= 0.2f)
         {
+            Progress.InstanceProgress.CurrentProgressData.Shotperiod = 0.2f;
             _but.SetActive(false);
             _text.SetActive(true);
         }

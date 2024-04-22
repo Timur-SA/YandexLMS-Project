@@ -27789,7 +27789,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemiesAtAll: 60
   SpawnCount: 4
-  Reward: 0
+  Reward: 110
   SpawnDelay: 3
 --- !u!4 &6321984185687543022
 Transform:
