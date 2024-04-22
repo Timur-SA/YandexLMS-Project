@@ -11329,7 +11329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentProgressData:
     Level: 1
-    Coins: 1000
+    Coins: 0
     BulletsInMagazine: 10
     Shotperiod: 0.6
     ReloadTime: 3
