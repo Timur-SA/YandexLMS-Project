@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using YG;
 using UnityEngine.UIElements;
+using Autodesk.Fbx;
 
 public class FPSController : MonoBehaviour
 {
@@ -113,6 +114,7 @@ public class FPSController : MonoBehaviour
             if (_timeNow >= 3)
             {
                 SceneManager.LoadScene(0);
+                YandexGame.FullscreenShow();
                 Pause.Instance.IsPause = false;
             }
         }
@@ -138,20 +140,23 @@ public class FPSController : MonoBehaviour
 
     public void Damage(int _damage)
     {
-        SafeTime = true;
-        Health -= _damage;
-        Debug.Log("!");
-        MinusHP();
-        _heartImg.SetActive(false);
-        if (Health <= 0)
+        if (!Pause.Instance.IsPause)
         {
-            Die();
+            SafeTime = true;
+            Health -= _damage;
+            Debug.Log("!");
+            MinusHP();
+            _heartImg.SetActive(false);
+            if (Health <= 0)
+            {
+                Die();
+            }
+            else
+            {
+                _heartImg.SetActive(true);
+            }
+            StartCoroutine(Safe());
         }
-        else
-        {
-            _heartImg.SetActive(true);
-        }
-        StartCoroutine(Safe());
     }
 
     private IEnumerator Safe()
@@ -173,18 +178,19 @@ public class FPSController : MonoBehaviour
 
     private void Die()
     {
+        Pause.Instance.IsPause = true;
         _loseWindow.SetActive(true);
         UnityEngine.Cursor.lockState = CursorLockMode.None;
         _textRewardL.text = "+10";
         Progress.InstanceProgress.CurrentProgressData.Coins += 10;
         Progress.InstanceProgress.Save();
-        Pause.Instance.IsPause = true;
         _timeNow = 0f;
 
     }
 
     private void Win()
     {
+        Pause.Instance.IsPause = true;
         _winWindow.SetActive(true);
         UnityEngine.Cursor.lockState = CursorLockMode.None;
         _textReward.text = "+" + _lvl.Reward.ToString();
@@ -197,7 +203,7 @@ public class FPSController : MonoBehaviour
             }
         }
         Progress.InstanceProgress.Save();
-        Pause.Instance.IsPause = true;
+        
         _timeNow = 0f;
     }
 }

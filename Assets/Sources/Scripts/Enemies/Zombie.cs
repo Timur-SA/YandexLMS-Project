@@ -17,16 +17,19 @@ public class Zombie : AllEnemies
 
     void Update()
     {
-        if (alive)
-        {
-            Agent.SetDestination(_playertransform.position);
-        }
-        else
-        {
-            timedestroy += Time.deltaTime;
-            if (timedestroy > 2)
+        if (!Pause.Instance.IsPause)
+        { 
+            if (alive)
             {
-                Destroy(gameObject);
+                Agent.SetDestination(_playertransform.position);
+            }
+            else
+            {
+                timedestroy += Time.deltaTime;
+                if (timedestroy > 2)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
     }

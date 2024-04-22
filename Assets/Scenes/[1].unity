@@ -1660,10 +1660,15 @@ PrefabInstance:
         type: 3}
       propertyPath: _loseWindow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 461121878796497454}
     - target: {fileID: 5679208360904360281, guid: 21e3acec73c73b640a4c3537c343bb0a,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935210511243725554, guid: 21e3acec73c73b640a4c3537c343bb0a,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7695241746144776031, guid: 21e3acec73c73b640a4c3537c343bb0a,
@@ -1721,6 +1726,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21e3acec73c73b640a4c3537c343bb0a, type: 3}
+--- !u!1 &461121878796497454 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5935210511243725554, guid: 21e3acec73c73b640a4c3537c343bb0a,
+    type: 3}
+  m_PrefabInstance: {fileID: 461121878796497453}
+  m_PrefabAsset: {fileID: 0}
 --- !u!33 &476616312123048716
 MeshFilter:
   m_ObjectHideFlags: 0

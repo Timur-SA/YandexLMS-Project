@@ -19,16 +19,19 @@ public class Sceleton : AllEnemies
 
     private void Update()
     {
-        if (alive)
+        if (!Pause.Instance.IsPause)
         {
-            Agent.SetDestination(_playertransform.position);
-        }
-        else
-        {
-            timedestroy += Time.deltaTime;
-            if (timedestroy > 2)
+            if (alive)
             {
-                Destroy(gameObject);
+                Agent.SetDestination(_playertransform.position);
+            }
+            else
+            {
+                timedestroy += Time.deltaTime;
+                if (timedestroy > 2)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
     }
